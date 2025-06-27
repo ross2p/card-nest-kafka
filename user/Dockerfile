@@ -7,6 +7,6 @@ RUN npm ci
 
 COPY . /app
 
-RUN chmod +x /app/entrypoint.sh
+RUN npm run build
 
-CMD ["/app/entrypoint.sh"]
+CMD ["npm", "run", "start:prod"]
