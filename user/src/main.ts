@@ -8,7 +8,7 @@ async function bootstrap() {
     transport: Transport.KAFKA,
     options: {
       client: {
-        clientId: 'user',
+        clientId: 'user-client',
         brokers: [process.env.KAFKA_BROKER!],
       },
       consumer: {
@@ -16,6 +16,8 @@ async function bootstrap() {
       },
     },
   });
+
+  await app.application.startAllMicroservices();
   await app.start();
 }
 void bootstrap();

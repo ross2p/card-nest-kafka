@@ -9,6 +9,7 @@ export class UserMessageController {
 
   @MessagePattern('user.findUserByEmail')
   public async findUserByEmail(data: { email: string }) {
+    console.log(data);
     return this.userService.findUserByEmailOrThrow(data.email);
   }
 

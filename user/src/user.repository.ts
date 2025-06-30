@@ -8,10 +8,10 @@ import {
 
 @Injectable()
 export class UserRepository {
-  private userRepository: Prisma.UserDelegate;
+  private readonly userRepository: Prisma.UserDelegate;
 
   constructor(databaseService: DatabaseService) {
-    this.userRepository = databaseService.userRepository as Prisma.UserDelegate;
+    this.userRepository = databaseService.user as Prisma.UserDelegate;
   }
 
   public async findUserByEmail(email: string): Promise<UserEntity | null> {
